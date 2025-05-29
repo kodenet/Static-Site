@@ -15,10 +15,30 @@ marked.setOptions({
 console.log('Creating dist directory...');
 fs.ensureDirSync('dist');
 
-// Copy static assets
+// Copy static assets with proper organization
 console.log('Copying static assets...');
 if (fs.existsSync('src/static')) {
-  fs.copySync('src/static', 'dist', { overwrite: true });
+  // Read all files in static directory
+  const staticFiles = fs.readdirSync('src/static');
+  
+  staticFiles.forEach(file => {
+    const srcPath = path.join('src/static', file);
+    const stats = fs.statSync(srcPath);
+    
+    if (stats.isFile()) {
+      // Special handling for root-level files
+      if (['404.html', 'index.html'].includes(file)) {
+        // These go directly in dist root
+        fs.copySync(srcPath, path.join('dist', file), { overwrite: true });
+      } else {
+        // Other static files maintain their relative path
+        fs.copySync(srcPath, path.join('dist', file), { overwrite: true });
+      }
+    } else if (stats.isDirectory()) {
+      // Directories are copied maintaining their structure
+      fs.copySync(srcPath, path.join('dist', file), { overwrite: true });
+    }
+  });
   console.log('Static assets copied successfully.');
 } else {
   console.log('No static assets found.');
@@ -63,10 +83,18 @@ function processDirectory(srcDir, type) {
           .replace('{{content}}', html)
           .replace(/\{\{date\}\}/g, attributes.date || '');
         
-        // Special handling for home page
-        const outFile = file === 'home.md' 
-          ? path.join('dist', 'index.html')
-          : path.join('dist', type, file.replace('.md', '.html'));
+        // Determine output path based on content type and filename
+        let outFile;
+        if (file === 'home.md') {
+          // Home page goes to root index.html
+          outFile = path.join('dist', 'index.html');
+        } else if (file === '404.md') {
+          // 404 page goes to root 404.html
+          outFile = path.join('dist', '404.html');
+        } else {
+          // All other content files go to their respective directories
+          outFile = path.join('dist', type, file.replace('.md', '.html'));
+        }
         
         console.log(`Writing to: ${outFile}`);
         fs.ensureDirSync(path.dirname(outFile));

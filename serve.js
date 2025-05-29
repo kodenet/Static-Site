@@ -3,7 +3,8 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = 3001;
+const PORT = 8080;
+const HOST = 'localhost';
 
 // Serve static files from the dist directory
 app.use(express.static('dist'));
@@ -28,7 +29,22 @@ app.use((req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+// More explicit server startup
+const server = app.listen(PORT, HOST, (error) => {
+  if (error) {
+    console.error('Error starting server:', error);
+    process.exit(1);
+  }
+  console.log(`Server running at http://${HOST}:${PORT}`);
   console.log('If you see a 404 error, please run `npm run build` first.');
+});
+
+// Handle server errors
+server.on('error', (error) => {
+  if (error.code === 'EADDRINUSE') {
+    console.error(`Port ${PORT} is already in use. Please try a different port.`);
+  } else {
+    console.error('Server error:', error);
+  }
+  process.exit(1);
 }); 

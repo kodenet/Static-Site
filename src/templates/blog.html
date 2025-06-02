@@ -5,6 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
     <link rel="stylesheet" href="/css/style.css">
+    <!-- Add Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .blog-post {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .blog-header {
+            margin-bottom: 3rem;
+        }
+        .blog-header h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+        .post-meta {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        .post-meta a, .contributor a {
+            color: #333;
+            text-decoration: none;
+        }
+        .post-meta a:hover, .contributor a:hover {
+            text-decoration: underline;
+        }
+        .post-meta .updated {
+            color: #2a6b2a;
+            font-weight: 500;
+        }
+        .contributor {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        .featured-image-container {
+            margin: 2rem 0 3rem;
+        }
+        .featured-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .blog-content {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        .blog-content h2 {
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+    </style>
 </head>
 <body>
     <nav class="main-nav">
@@ -21,11 +77,85 @@
 
     <main class="container">
         <article class="blog-post">
-            <header>
+            <header class="blog-header">
                 <h1>{{title}}</h1>
-                <time datetime="{{date}}">{{date}}</time>
+                <div class="post-meta">
+                    Author: <a href="/authors/{{authorId}}">{{author.name}}</a> | 
+                    {{#if updatedDate}}
+                        {{#if (isModified date updatedDate)}}
+                        <span class="updated">Updated: {{formatDate updatedDate}}</span>
+                        {{else}}
+                        {{formatDate date}}
+                        {{/if}}
+                    {{else}}
+                    {{formatDate date}}
+                    {{/if}}
+                    {{#if readingTime}} | {{readingTime}}{{/if}}
+                </div>
+                {{#if contributor}}
+                <div class="contributor">
+                    Contributor: <a href="/contributors/{{slugify contributor}}">{{contributor}}</a>
+                </div>
+                {{/if}}
             </header>
-            {{content}}
+
+            {{#if featuredImage}}
+            <div class="featured-image-container">
+                <img 
+                    src="{{featuredImage}}" 
+                    alt="{{featuredImageAlt}}" 
+                    class="featured-image"
+                    loading="eager"
+                >
+            </div>
+            {{/if}}
+            
+            <div class="blog-content">
+                {{{content}}}
+            </div>
+            
+            {{#if author}}
+            <section class="author-bio">
+                <h3>About the author:</h3>
+                <div class="author-info">
+                    <div class="author-image">
+                        <img src="{{author.image}}" alt="{{author.name}}'s photo" loading="lazy">
+                    </div>
+                    <div class="author-details">
+                        <h4 class="author-name">{{author.name}}</h4>
+                        {{#if author.title}}
+                        <div class="author-title">{{author.title}}</div>
+                        {{/if}}
+                        <div class="author-description">{{author.bio}}</div>
+                        <div class="social-links">
+                            <span class="follow-text">Follow the expert:</span>
+                            <div class="social-icons">
+                                {{#if author.socialLinks.facebook}}
+                                <a href="{{author.socialLinks.facebook}}" target="_blank" rel="noopener noreferrer" class="social-icon">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                {{/if}}
+                                {{#if author.socialLinks.twitter}}
+                                <a href="{{author.socialLinks.twitter}}" target="_blank" rel="noopener noreferrer" class="social-icon">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                {{/if}}
+                                {{#if author.socialLinks.linkedin}}
+                                <a href="{{author.socialLinks.linkedin}}" target="_blank" rel="noopener noreferrer" class="social-icon">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                {{/if}}
+                                {{#if author.socialLinks.instagram}}
+                                <a href="{{author.socialLinks.instagram}}" target="_blank" rel="noopener noreferrer" class="social-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {{/if}}
         </article>
     </main>
 

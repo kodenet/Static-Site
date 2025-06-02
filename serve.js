@@ -37,6 +37,7 @@ const server = app.listen(PORT, HOST, (error) => {
   }
   console.log(`Server running at http://${HOST}:${PORT}`);
   console.log('If you see a 404 error, please run `npm run build` first.');
+  console.log('Press Ctrl+C to stop the server.');
 });
 
 // Handle server errors
@@ -47,4 +48,25 @@ server.on('error', (error) => {
     console.error('Server error:', error);
   }
   process.exit(1);
-}); 
+});
+
+// Handle graceful shutdown
+process.on('SIGINT', () => {
+  console.log('\nShutting down server...');
+  server.close(() => {
+    console.log('Server stopped.');
+    process.exit(0);
+  });
+});
+
+// Handle Windows-specific signals
+if (process.platform === 'win32') {
+  const rl = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
+  rl.on('SIGINT', () => {
+    process.emit('SIGINT');
+  });
+} 

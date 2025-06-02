@@ -1,0 +1,14 @@
+{
+    "id": "test-author",
+    "name": "Test Author",
+    "title": "Co Founder of Test Company & Owner of Test Product",
+    "bio": "This is a test author bio that's long enough to demonstrate how longer descriptions look in the sidebar. It includes multiple sentences to show text wrapping and spacing in the author bio section.",
+    "image": "/images/authors/test-author.jpeg",
+    "socialLinks": {
+        "linkedin": "https://linkedin.com/in/test",
+        "twitter": "https://twitter.com/test",
+        "facebook": "https://facebook.com/test",
+        "instagram": "https://instagram.com/test",
+        "email": "mailto:test@example.com"
+    }
+} 

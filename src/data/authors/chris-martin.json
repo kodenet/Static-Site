@@ -1,0 +1,14 @@
+{
+    "id": "chris-martin",
+    "name": "Chris Martin",
+    "title": "Product Tester and Reviewer at Tech Advisor",
+    "bio": "Chris got his break as a reporter at infamous site The Inquirer and has been at Tech Advisor for more than 12 years. With a BA degree in Music Technology, audio is his specialism, but over the years he has reviewed all kinds of gadgets, from smartwatches to mesh Wi-Fi to coffee machines.",
+    "image": "/images/authors/chris_martin.jpeg",
+    "socialLinks": {
+        "linkedin": "http://www.linkedin.com/pub/chris-martin/48/a57/7a6",
+        "twitter": "http://twitter.com/mrcjmartin",
+        "facebook": "https://www.facebook.com/mrcjmartin",
+        "instagram": "https://www.instagram.com/accounts/mrcjmartin",
+        "email": "chris_martin@foundryco.com"
+    }
+} 

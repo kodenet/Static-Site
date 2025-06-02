@@ -1,0 +1,13 @@
+{
+    "id": "sarah-chen",
+    "name": "Sarah Chen",
+    "title": "Senior UI/UX Designer & Digital Brand Strategist",
+    "bio": "Sarah Chen is a UI/UX designer with 8+ years of experience in digital design and brand identity. She specializes in creating beautiful, accessible, and user-friendly web experiences.",
+    "image": "/images/authors/sarah-profile.jpeg",
+    "socialLinks": {
+        "linkedin": "https://linkedin.com/in/sarahchen",
+        "twitter": "https://twitter.com/sarahchen",
+        "facebook": "https://facebook.com/sarahchen.design",
+        "email": "mailto:sarah@example.com"
+    }
+} 

@@ -1,0 +1,12 @@
+{
+    "id": "anyron-copeman",
+    "name": "Anyron Copeman",
+    "title": "Staff Writer",
+    "bio": "Anyron is a staff writer covering a range of topics in technology and digital culture.",
+    "image": "/images/authors/anyron.jpeg",
+    "socialLinks": {
+        "linkedin": "http://www.linkedin.com/in/anyron-copeman",
+        "twitter": "http://twitter.com/anyroncopeman",
+        "email": "anyron@example.com"
+    }
+} 

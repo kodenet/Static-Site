@@ -1,0 +1,131 @@
+---
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Syntax Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <!-- Typography Plugin -->
+    <link href="https://unpkg.com/@tailwindcss/typography@0.5.10/dist/typography.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-gray-50">
+    <slot />
+    <!-- Syntax Highlighting Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --content-width: 720px;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      padding: 0 2rem;
+    }
+  }
+
+  /* Fix Tailwind Typography spacing */
+  .prose {
+    max-width: none;
+  }
+
+  .prose img {
+    margin: 2rem auto;
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose p {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Additional Typography Styles */
+  .prose blockquote {
+    font-style: italic;
+    border-left: 4px solid #e5e7eb;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+  }
+
+  .prose table th,
+  .prose table td {
+    border: 1px solid #e5e7eb;
+    padding: 0.75rem;
+    text-align: left;
+  }
+
+  .prose table th {
+    background-color: #f9fafb;
+  }
+
+  /* Code Block Styles */
+  pre[class*="language-"] {
+    border-radius: 0.5rem;
+    margin: 2rem 0;
+  }
+
+  /* Info Box Styles */
+  blockquote:has(ℹ️) {
+    background-color: #e8f4fd;
+    border-left-color: #3b82f6;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  /* Warning Box Styles */
+  blockquote:has(⚠️) {
+    background-color: #fff7ed;
+    border-left-color: #f97316;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  /* Success Box Styles */
+  blockquote:has(✅) {
+    background-color: #f0fdf4;
+    border-left-color: #22c55e;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+</style> 

@@ -55,10 +55,576 @@
             font-size: 1.1rem;
             line-height: 1.7;
         }
+        .blog-content a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .blog-content a:hover {
+            color: #ff6600;
+        }
         .blog-content h2 {
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        .blog-content h3 {
             margin-top: 2.5rem;
             margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        .blog-content p {
+            margin-bottom: 2rem;
+        }
+        .blog-content img {
+            width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .blog-content ul, .blog-content ol {
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .blog-content li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+        .blog-content li:last-child {
+            margin-bottom: 0;
+        }
+        .blog-content pre {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.95rem;
+        }
+        .blog-content code {
+            background: #f8f9fa;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+        .blog-content pre code {
+            padding: 0;
+            background: none;
+        }
+        .blog-content a {
+            word-break: break-word;
+            hyphens: auto;
+        }
+        .blog-content h2 {
+            margin-top: 3rem;
+            margin-bottom: 2rem;
             font-size: 2rem;
+        }
+        .blog-content h3 {
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        .blog-content p {
+            margin-bottom: 2rem;
+        }
+        .blog-content img {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        .blog-content ul, .blog-content ol {
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc-container {
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 0.3rem 1rem 0.25rem;
+            margin: 1.5rem 0;
+            max-width: 100%;
+        }
+
+        .toc-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 0;
+            padding: 0;
+            line-height: 0.8;
+            margin-bottom: -0.2rem;
+        }
+
+        .toc-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+
+        .toc-toggle {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 0.15rem 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: opacity 0.2s ease;
+        }
+
+        .toc-toggle:hover {
+            opacity: 0.9;
+        }
+
+        .toc-content {
+            display: none;
+            margin: 0;
+            padding: 0;
+            margin-top: -0.4rem;
+            position: relative;
+            top: -0.15rem;
+        }
+
+        .toc-content.show {
+            display: block;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-list li {
+            margin: 0.1rem 0;
+            font-size: 1.1rem;
+            line-height: 1.3;
+        }
+
+        .toc-list li:first-child {
+            margin-top: -0.1rem;
+        }
+
+        .toc-list a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .toc-list a:hover {
+            color: #ff6600;
+        }
+
+        .share-section {
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .share-title {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.25rem;
+        }
+
+        .share-button {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .share-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .share-button i {
+            font-size: 1.2rem;
+        }
+
+        .share-button.pinterest {
+            background-color: #E60023;
+        }
+
+        .share-button.facebook {
+            background-color: #1877F2;
+        }
+
+        .share-button.twitter {
+            background-color: #1DA1F2;
+        }
+
+        .share-button.linkedin {
+            background-color: #0A66C2;
+        }
+
+        .share-button.pinterest:hover {
+            background-color: #cc0000;
+        }
+
+        .share-button.facebook:hover {
+            background-color: #1559b3;
+        }
+
+        .share-button.twitter:hover {
+            background-color: #1884cc;
+        }
+
+        .share-button.linkedin:hover {
+            background-color: #084c8e;
+        }
+
+        .author-bio {
+            margin: 3rem 0;
+        }
+
+        .recommended-posts {
+            margin: 4rem 0;
+            padding: 0 1rem;
+        }
+
+        .recommended-posts h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #333;
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .post-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        .post-card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .post-card-category {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .post-card-title {
+            font-size: 1.4rem;
+            margin: 0.5rem 0;
+            color: #333;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+
+        /* Large screens (1200px and up) */
+        @media (min-width: 1200px) {
+            .posts-grid {
+                gap: 2.5rem;
+            }
+
+            .post-card-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Medium screens (992px to 1199px) */
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .posts-grid {
+                gap: 2rem;
+                padding: 0 2rem;
+            }
+
+            .recommended-posts h2 {
+                font-size: 2.25rem;
+            }
+        }
+
+        /* Tablet screens (768px to 991px) */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .posts-grid {
+                gap: 1.5rem;
+                padding: 0 1.5rem;
+            }
+
+            .recommended-posts h2 {
+                font-size: 2rem;
+            }
+
+            .post-card-title {
+                font-size: 1.3rem;
+            }
+
+            .post-card img {
+                height: 180px;
+            }
+
+            .post-card-content {
+                padding: 1.25rem;
+            }
+        }
+
+        /* Mobile screens (up to 767px) */
+        @media (max-width: 767px) {
+            .recommended-posts {
+                margin: 3rem 0;
+                padding: 0 1rem;
+            }
+
+            .recommended-posts h2 {
+                font-size: 1.75rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 0;
+            }
+
+            .post-card {
+                max-width: 100%;
+            }
+
+            .post-card img {
+                height: 220px;
+            }
+
+            .post-card-content {
+                padding: 1.25rem;
+            }
+
+            .post-card-title {
+                font-size: 1.2rem;
+            }
+
+            .blog-content {
+                font-size: 1rem;
+            }
+
+            .blog-content img {
+                margin: 1.5rem 0;
+            }
+
+            .blog-content ul, .blog-content ol {
+                padding-left: 1.25rem;
+            }
+
+            .blog-content pre {
+                padding: 0.75rem;
+                font-size: 0.9rem;
+                margin: 1.25rem 0;
+            }
+
+            .blog-content code {
+                font-size: 0.9rem;
+            }
+
+            .blog-content h2 {
+                font-size: 1.75rem;
+                margin-top: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .blog-content h3 {
+                font-size: 1.4rem;
+                margin-top: 1.75rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .blog-content p {
+                margin-bottom: 1.25rem;
+            }
+        }
+
+        /* Small mobile screens (up to 480px) */
+        @media (max-width: 480px) {
+            .recommended-posts {
+                margin: 2.5rem 0;
+            }
+
+            .recommended-posts h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .post-card img {
+                height: 180px;
+            }
+
+            .post-card-content {
+                padding: 1rem;
+            }
+
+            .blog-content {
+                font-size: 0.95rem;
+            }
+
+            .blog-content img {
+                margin: 1.25rem 0;
+            }
+
+            .blog-content ul, .blog-content ol {
+                padding-left: 1rem;
+            }
+
+            .blog-content pre {
+                padding: 0.5rem;
+                font-size: 0.85rem;
+                margin: 1rem 0;
+            }
+
+            .blog-content code {
+                font-size: 0.85rem;
+                padding: 0.15rem 0.3rem;
+            }
+
+            .blog-content h2 {
+                font-size: 1.5rem;
+                margin-top: 1.75rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .blog-content h3 {
+                font-size: 1.25rem;
+                margin-top: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .blog-content p {
+                margin-bottom: 1rem;
+            }
+
+            .blog-content li {
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        /* Add responsive styles for blog content */
+        @media (max-width: 1199px) {
+            .blog-header h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .blog-header h1 {
+                font-size: 2.5rem;
+            }
+            .blog-post {
+                padding: 1.5rem 1rem;
+            }
+            .blog-content {
+                font-size: 1.05rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .blog-header h1 {
+                font-size: 2rem;
+            }
+            .blog-post {
+                padding: 1.25rem 1rem;
+            }
+            .featured-image-container {
+                margin: 1.5rem 0 2rem;
+            }
+            .blog-content {
+                font-size: 1rem;
+            }
+            .blog-content h2 {
+                font-size: 1.75rem;
+                margin-top: 2rem;
+                margin-bottom: 1.5rem;
+            }
+            .blog-content h3 {
+                font-size: 1.4rem;
+                margin-top: 1.75rem;
+                margin-bottom: 1rem;
+            }
+            .blog-content p {
+                margin-bottom: 1.5rem;
+            }
+            .blog-content img {
+                margin: 1.5rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-header h1 {
+                font-size: 1.75rem;
+            }
+            .blog-post {
+                padding: 1rem;
+            }
+            .blog-content h2 {
+                font-size: 1.5rem;
+                margin-top: 1.75rem;
+                margin-bottom: 1.25rem;
+            }
+            .blog-content h3 {
+                font-size: 1.25rem;
+                margin-top: 1.5rem;
+                margin-bottom: 0.75rem;
+            }
+            .post-meta, .contributor {
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
@@ -111,9 +677,50 @@
             {{/if}}
             
             <div class="blog-content">
+                <div class="toc-container">
+                    <div class="toc-header">
+                        <h2 class="toc-title">Contents</h2>
+                        <button class="toc-toggle" onclick="toggleTOC()">SHOW</button>
+                    </div>
+                    <div class="toc-content" id="tocContent">
+                        <ul class="toc-list" id="tocList">
+                        </ul>
+                    </div>
+                </div>
+
                 {{{content}}}
             </div>
-            
+
+            <div class="share-section">
+                <h2 class="share-title">Share This Post</h2>
+                <div class="share-buttons">
+                    <a href="https://pinterest.com/pin/create/button/?url={{encodeUrl baseUrl}}/blog/{{slug}}&description={{encodeUrl title}}" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="share-button pinterest">
+                        <i class="fab fa-pinterest-p"></i>
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{encodeUrl baseUrl}}/blog/{{slug}}" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="share-button facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url={{encodeUrl baseUrl}}/blog/{{slug}}&text={{encodeUrl title}}" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="share-button twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{encodeUrl baseUrl}}/blog/{{slug}}" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="share-button linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+
             {{#if author}}
             <section class="author-bio">
                 <h3>About the author:</h3>
@@ -156,6 +763,23 @@
                 </div>
             </section>
             {{/if}}
+
+            <section class="recommended-posts">
+                <h2>You'll Also Love</h2>
+                <div class="posts-grid">
+                    {{#each (getRecommendedPosts slug 3)}}
+                    <a href="{{this.url}}" class="post-card">
+                        {{#if this.featuredImage}}
+                        <img src="{{this.featuredImage}}" alt="{{this.featuredImageAlt}}" loading="lazy">
+                        {{/if}}
+                        <div class="post-card-content">
+                            <div class="post-card-category">{{this.category}}</div>
+                            <h3 class="post-card-title">{{this.title}}</h3>
+                        </div>
+                    </a>
+                    {{/each}}
+                </div>
+            </section>
         </article>
     </main>
 
@@ -164,5 +788,49 @@
             <p>&copy; 2024 Your Site. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function toggleTOC() {
+            const content = document.getElementById('tocContent');
+            const toggle = document.querySelector('.toc-toggle');
+            content.classList.toggle('show');
+            toggle.textContent = content.classList.contains('show') ? 'HIDE' : 'SHOW';
+        }
+
+        // Generate table of contents
+        document.addEventListener('DOMContentLoaded', function() {
+            const content = document.querySelector('.blog-content');
+            const tocList = document.getElementById('tocList');
+            const headings = content.querySelectorAll('h2');
+            
+            if (headings.length > 0) {
+                headings.forEach((heading, index) => {
+                    // Skip if the heading text is "Contents"
+                    if (heading.textContent.trim().toLowerCase() === 'contents') {
+                        return;
+                    }
+                    
+                    // Create an ID for the heading if it doesn't have one
+                    if (!heading.id) {
+                        heading.id = 'heading-' + (index + 1);
+                    }
+                    
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = '#' + heading.id;
+                    a.textContent = heading.textContent;
+                    li.appendChild(a);
+                    tocList.appendChild(li);
+                });
+
+                // Hide TOC if no items were added
+                if (tocList.children.length === 0) {
+                    document.querySelector('.toc-container').style.display = 'none';
+                }
+            } else {
+                document.querySelector('.toc-container').style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html> 

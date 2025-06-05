@@ -46,6 +46,38 @@ Handlebars.registerHelper('slugify', function(text) {
     .replace(/-+$/, '');         // Trim - from end of text
 });
 
+Handlebars.registerHelper('encodeUrl', function(text) {
+  return encodeURIComponent(text);
+});
+
+// Helper to get recommended posts
+Handlebars.registerHelper('getRecommendedPosts', function(currentSlug, limit = 3) {
+  // Filter out the current post
+  const otherPosts = blogPosts.filter(post => !post.url.endsWith(`/${currentSlug}`));
+  
+  // Get category of current post if available
+  const currentPost = blogPosts.find(post => post.url.endsWith(`/${currentSlug}`));
+  const currentCategory = currentPost?.category;
+
+  // Sort posts: prioritize same category, then by date
+  const sortedPosts = otherPosts.sort((a, b) => {
+    // First prioritize posts from the same category
+    if (currentCategory) {
+      if (a.category === currentCategory && b.category !== currentCategory) return -1;
+      if (b.category === currentCategory && a.category !== currentCategory) return 1;
+    }
+    
+    // Then sort by date (newest first)
+    const dateA = new Date(a.updatedDate || a.date);
+    const dateB = new Date(b.updatedDate || b.date);
+    return dateB - dateA;
+  });
+
+  // Always return exactly 3 posts or all available if less than 3
+  const maxPosts = Math.min(3, sortedPosts.length);
+  return sortedPosts.slice(0, maxPosts);
+});
+
 // Store blog posts for index generation
 let blogPosts = [];
 
@@ -196,7 +228,10 @@ function processDirectory(srcDir, type) {
             excerpt: marked(excerpt),
             url: `/blog/${file.replace('.md', '.html')}`,
             author: authors[attributes.authorId]?.name,
-            authorId: attributes.authorId
+            authorId: attributes.authorId,
+            featuredImage: attributes.featuredImage,
+            featuredImageAlt: attributes.featuredImageAlt,
+            category: attributes.category || 'BLOG'
           });
         }
         
